@@ -30,7 +30,7 @@ const HEADING_OFFSET = 0; // Change this!
 
 ### 3. Run the Experiment
 ```bash
-export GOOGLE_API_KEY="AIzaSyCVO2iup2fhlaimSsBMrozoBWKW19pjPmw"
+export GOOGLE_API_KEY=""
 node experiment-01-static.js
 ```
 
