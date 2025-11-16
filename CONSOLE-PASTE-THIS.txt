@@ -1,0 +1,71 @@
+// PASTE THIS DIRECTLY INTO GOOGLE STREET VIEW CONSOLE
+// Monitors URL changes as you move the camera
+
+let watching = false;
+let lastUrl = '';
+
+window.watch = function() {
+  if (watching) {
+    console.log('Already watching');
+    return;
+  }
+  watching = true;
+  console.log('🎬 STREET VIEW MONITOR\nMove your camera around...\n');
+
+  const interval = setInterval(() => {
+    const url = window.location.href;
+    
+    // URL format: @lat,lon,zoom+a,height+y,heading+h,tilt+t
+    // Example: @9.9054766,7.439502,3a,15y,212.5h,123.64t
+    
+    if (url !== lastUrl) {
+      lastUrl = url;
+      
+      // Extract lat,lon,zoom,height,heading,tilt from URL
+      const match = url.match(/@([\d.-]+),([\d.-]+),(\d+)a,(\d+)y,([\d.]+)h,([\d.]+)t/);
+      
+      if (match) {
+        const lat = match[1];
+        const lon = match[2];
+        const zoom = match[3];
+        const height = match[4];
+        let heading = parseFloat(match[5]);
+        let tilt = parseFloat(match[6]);
+        
+        // Normalize heading to 0-360
+        heading = (heading % 360 + 360) % 360;
+        
+        // Convert tilt to pitch (-90 to +90)
+        // tilt goes from 0 (looking down) to 180 (looking up) to 0 (looking down again)
+        // pitch goes from -90 (straight down) to 0 (horizon) to +90 (straight up)
+        let pitch = tilt - 90;
+        
+        // Calculate FOV from zoom using exponential relationship
+        // Street View zoom: 1=120°, 2=60°, 3=40°, 4=30°, 5=24°, etc
+        // Formula: FOV ≈ 120 / (2^(zoom-1))
+        const fov = Math.max(10, Math.min(120, 120 / Math.pow(2, zoom - 1)));
+        
+        console.clear();
+        console.log(' STREET VIEW CAMERA\n');
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log(` Heading: ${heading.toFixed(1)}°  (0-360)`);
+        console.log(` Pitch:   ${pitch.toFixed(1)}°  (-90 to +90)`);
+        console.log(`  FOV:     ${fov.toFixed(1)}°  (10-120)`);
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log(` Lat/Lon: ${lat}, ${lon}`);
+        console.log(` Zoom:    ${zoom}x`);
+        console.log(` Height:  ${height}m`);
+      }
+    }
+  }, 250);
+
+  window.stop = function() {
+    clearInterval(interval);
+    watching = false;
+    console.log(' Stopped watching');
+  };
+};
+
+console.log(' Street View Monitor Ready!');
+console.log('Type: watch()  to start');
+console.log('Type: stop()   to stop');
