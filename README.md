@@ -1,9 +1,7 @@
-# 🌐 DIGITAL NATIVE WORKSHOP  
-### November 2025
-
 <img width="1484" height="548" alt="Screenshot 2025-11-16 at 2 15 44 PM" src="https://github.com/user-attachments/assets/b40169ef-de58-4f55-b3ea-772573612ff5" />
 
-### Scraping Street View    
+# 🌐 DAE_DIGITAL NATIVE WORKSHOP  
+### Nov25 Scraping Street View    
 **Tools:** Google Street View API, Node.js, FFmpeg, QGIS  
 
 The workshop positions **code as camera** — exploring how digital infrastructures and APIs encode geography and movement to **reconstruct digital landscapes** as narrative and critical media.
@@ -30,34 +28,23 @@ By the end, each participant will be able to “film” a short, coded documenta
 
 <img width="1715" height="992" alt="Screenshot 2025-09-04 at 9 51 46 AM" src="https://github.com/user-attachments/assets/55ededbf-fb2e-47d1-9ec0-51cc7bf24615" />
 
-## References:
-<br>
-[Laura Kurgan](https://c4sr.columbia.edu/projects/plain-sight)
-<br>
-[CSR - Conflict Urbanism](https://centerforspatialresearch.github.io/conflict_urbanism_sp2023/2023/04/28/Those-Who-Live-and-Travel-in-the-Dark.html)
-<br>
-[Robert Pietrusko](https://www.warning-office.org/wo-test-sites)
-<br>
-[Sam Lavigne](https://lav.io/projects/street-views/)
-<br>
-[James Bridle](https://jamesbridle.com/works/every-cctv-camera-cc)
-<br>
-[Clement Valla](https://clementvalla.com/work/postcards-from-google-earth/)
-<br>
-[Dan Miller](https://dl.acm.org/doi/10.1145/3715668.3736392#:~:text=As%20we%20witness%20the%20unraveling,stored%20the%20files%20%5B9%5D.)
-<br>
-[Mario Santamaria](https://www.mariosantamaria.net/Emerald-black-latency/)
-<br>
-[Simon Weckert](https://www.simonweckert.com/googlemapshacks.html)
-<br>
-[Jenny Odell](https://www.jennyodell.com/satellite-landscapes.html)
-<br>
-[Josh Begley](https://joshbegley.com/)
-<br>
-[WTTDOTM](https://trafficcamphotobooth.com/animenyc.html)
-<br>
-[Tatu Gustaffsson](https://stanisland.com/2024/10/08/tatu-gustaffsson-cctv-project-finland/)
+## References
 
+- [Laura Kurgan](https://c4sr.columbia.edu/projects/plain-sight)
+- [CSR - Conflict Urbanism](https://centerforspatialresearch.github.io/conflict_urbanism_sp2023/2023/04/28/Those-Who-Live-and-Travel-in-the-Dark.html)
+- [Robert Pietrusko](https://www.warning-office.org/wo-test-sites)
+- [Sam Lavigne](https://lav.io/projects/street-views/)
+- [James Bridle](https://jamesbridle.com/works/every-cctv-camera-cc)
+- [Clement Valla](https://clementvalla.com/work/postcards-from-google-earth/)
+- [Dan Miller](https://dl.acm.org/doi/10.1145/3715668.3736392#:~:text=As%20we%20Witness%20the%20unraveling,stored%20the%20files%20%5B9%5D.)
+- [Mario Santamaria](https://www.mariosantamaria.net/Emerald-black-latency/)
+- [Simon Weckert](https://www.simonweckert.com/googlemapshacks.html)
+- [Jenny Odell](https://www.jennyodell.com/satellite-landscapes.html)
+- [Josh Begley](https://joshbegley.com/)
+- [WTTDOTM](https://trafficcamphotobooth.com/animenyc.html)
+- [Tatu Gustaffsson](https://stanisland.com/2024/10/08/tatu-gustaffsson-cctv-project-finland/)
+
+---
 
 ## Requirements
 
