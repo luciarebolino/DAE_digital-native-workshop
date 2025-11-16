@@ -6,6 +6,8 @@
   
 **Tools:** Google Street View API, Node.js, FFmpeg, QGIS  
 
+The workshop positions **code as camera** — exploring how digital infrastructures and APIs encode geography and movement to **reconstruct digital landscapes** as narrative and critical media.
+
 ---
 
 ## Overview
@@ -13,7 +15,7 @@
 *Scraping Street View* explores how to use open web infrastructures as creative and investigative tools.  
 Through this workshop, participants will learn how to use the **Google Street View API** to programmatically capture sequences of images from specific locations — transforming them into short, coded video essays.
 
-The workshop combines **scripting, mapping, and visual storytelling** to reframe familiar platforms such as Google Maps and Street View as open datasets for critical and artistic exploration.
+The workshop combines **scripting, mapping, and visual storytelling** to reframe familiar platforms such as Google Maps and Street View as open datasets for artistic exploration.
 
 Participants will learn to:
 - Access and use the Google Street View API
@@ -26,32 +28,17 @@ By the end, each participant will be able to “film” a short, coded documenta
 
 ---
 
-## Learning Objectives
-
-- Understand how to use **Google’s API** for spatial image retrieval  
-- Learn **Node.js scripting** for automating image scraping  
-- Use **QGIS** to design routes and extract coordinates  
-- Explore **video generation workflows** with FFmpeg  
-- Reflect on the aesthetics and ethics of scraping and open data  
-
----
-
 ## Requirements
 
 - Basic familiarity with JavaScript (or curiosity to learn)
 - A laptop with macOS, Windows, or Linux
-- Installed dependencies: `Node.js`, `npm`, `FFmpeg`, `QGIS`
+- Installed dependencies: `Node.js`, `npm`, `FFmpeg`, `QGIS` (we will see how to install them at the beginning of workshop)
 - A GitHub account for forking the workshop repository
-- A Google account (for API key setup and My Maps)
+- A Google account (for API key setup and My Maps) - **for the purpose of this exercise you will use my API key, but I show you how to set up one for the future
 
 ---
 
-## Conceptual Frame
 
-The workshop positions **code as camera** — exploring how digital infrastructures and APIs encode geography, perception, and movement.  
-By scraping Google Street View, participants not only extract data but also **reconstruct digital landscapes** as narrative and critical media.
-
----
 
 
 
