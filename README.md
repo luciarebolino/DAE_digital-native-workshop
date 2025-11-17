@@ -269,7 +269,7 @@ node camera-08-spiral.js --export-only
 # 4. Loop: Edit → Test → Refresh until happy
 
 # 5. Ready for final video? Run full mode:
-export GOOGLE_API_KEY="AIzaSyCVO2iup2fhlaimSsBMrozoBWKW19pjPmw"
+export GOOGLE_API_KEY="xxx"
 node camera-08-spiral.js
 
 # 6. Create video:
@@ -336,7 +336,7 @@ const HEADING_OFFSET = 0; // Change this!
 
 ### 3. Run the Camera Movement
 ```bash
-export GOOGLE_API_KEY="AIzaSyCVO2iup2fhlaimSsBMrozoBWKW19pjPmw"
+export GOOGLE_API_KEY="xxx"
 node camera-01-static.js
 ```
 —
