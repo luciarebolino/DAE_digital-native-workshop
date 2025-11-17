@@ -64,8 +64,6 @@ You will need a GitHub account in order to:
 - Clone the folder locally  
 - Run the scripts on your machine  
 
-(Create an account here: …)
-
 GitHub serves mainly as a way to bring the workshop code into your own environment.
 
 ### 2. Google Account
@@ -112,6 +110,14 @@ QGIS will be used for transforming the route created in Google My Maps into a se
 
 Before you can run these camera tools, make sure you have these dependencies installed on your computer:
 
+**0. Brew**
+[Homebrew](https://brew.sh/) is the package manager used to install tools like Node.js and FFmpeg.
+
+Open the Terminal app and run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 **1. Node.js (JavaScript Runtime)**
 Required to run all camera scripts.
 
