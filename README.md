@@ -339,12 +339,6 @@ const HEADING_OFFSET = 0; // Change this!
 export GOOGLE_API_KEY="AIzaSyCVO2iup2fhlaimSsBMrozoBWKW19pjPmw"
 node camera-01-static.js
 ```
-
-### 4. Create Video
-```bash
-ffmpeg -framerate 30 -i output_folder/%05d.jpg -c:v libx264 -pix_fmt yuv420p -y my_video.mp4
-```
-
 —
 # MOVEMENTS
 

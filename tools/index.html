@@ -479,7 +479,7 @@
         let isPlayingPath = false;
         
         // Load path points from points.geojson
-        fetch('./points.geojson')
+        fetch('../points.geojson')
             .then(response => response.json())
             .then(data => {
                 pathPoints = data.features.map((feature, index) => ({
