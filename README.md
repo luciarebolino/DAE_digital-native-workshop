@@ -757,6 +757,8 @@ When happy:
 
 ---
 
+## Explore CONSOLE Google Street View (to detect fov, heading and pitch)
+
 <img width="1351" height="958" alt="Screenshot 2025-11-17 at 12 28 54 AM" src="https://github.com/user-attachments/assets/24d265d7-4697-47ea-a4ed-4bd97fe69971" />
 
 ```bash
@@ -835,3 +837,171 @@ console.log('Type: stop()   to stop');
 
 ```
 
+## Assembling Multiple Videos
+
+### assemble-videos.js**
+
+Once you've created individual camera videos (static, zoom, rotation, etc.), you can combine them into a single video using `assemble-videos.js`. This tool offers multiple ways to connect your videos together with transitions or compare them side-by-side.
+
+### **Important: Use `video/` prefix for all video files!**
+
+All your videos are stored in the `video/` folder. When using `assemble-videos.js`, **always include the folder path**:
+
+```bash
+# CORRECT - run from tools/ folder, include video/ prefix
+cd /tools
+node assemble-videos.js --sidebyside video/static.mp4 video/rotation.mp4
+
+# WRONG - missing video/ folder prefix
+node assemble-videos.js --sidebyside static.mp4 rotation.mp4
+
+# WRONG - running from inside video/ folder
+cd video/
+node assemble-videos.js --sidebyside static.mp4 rotation.mp4
+```
+
+
+
+### **Quick Start: Combine 2+ Videos**
+
+#### **Method 1: Simple Concatenation**
+```bash
+node assemble-videos.js --simple video/video1.mp4 video/video2.mp4 video/video3.mp4
+```
+
+
+#### **Method 2: Fade Transition (Smooth)**
+```bash
+node assemble-videos.js --fade video/static.mp4 video/rotation.mp4 video/spiral.mp4
+```
+
+
+#### **Method 3: Slide Effect**
+```bash
+node assemble-videos.js --slideright video/static.mp4 video/rotation.mp4 video/spiral.mp4
+```
+- Clips slide in from different directions  
+Available: `--slideright`, `--slideleft`, `--slidedown`, `--slideup`
+
+#### **Method 4: Wipe Effect**
+```bash
+node assemble-videos.js --wipeleft video/static.mp4 video/rotation.mp4
+```
+**Dynamic** - Wipe transition between clips  
+Available: `--wipeleft`, `--wiperight`
+
+---
+
+### **Side-by-Side & Stacked (Any Number of Videos!)**
+
+#### **Compare 2 Videos Side-by-Side**
+```bash
+node assemble-videos.js --sidebyside video/static.mp4 video/rotation.mp4
+```
+Layout: 2 videos side-by-side  
+Output: 1920×1080 (each video ~960×1080)
+
+#### **Compare 3 Videos Side-by-Side**
+```bash
+node assemble-videos.js --sidebyside video/static.mp4 video/rotation.mp4 video/spiral.mp4
+```
+Layout: 3 videos in a row  
+Output: 1920×1080 (each video ~640×1080)
+
+#### **Compare 5 Videos (Grid Layout)**
+```bash
+node assemble-videos.js --sidebyside video/v1.mp4 video/v2.mp4 video/v3.mp4 video/v4.mp4 video/v5.mp4
+```
+Layout: 3 videos top row, 2 bottom (automatic grid)  
+Output: 1920×1080 (each video optimally sized)
+
+#### **Stack 2 Videos Vertically**
+```bash
+node assemble-videos.js --stacked video/static.mp4 video/rotation.mp4
+```
+Layout: Top video on top, bottom video below  
+Output: 640×1080 (each video 640×540)
+
+#### **Stack 4 Videos Vertically**
+```bash
+node assemble-videos.js --stacked video/v1.mp4 video/v2.mp4 video/v3.mp4 video/v4.mp4
+```
+Layout: Videos stacked 1, 2, 3, 4  
+Output: 640×1080 (each video 640×270)
+
+#### **Stack ANY Number of Videos**
+```bash
+node assemble-videos.js --stacked video/video1.mp4 video/video2.mp4 video/video3.mp4 video/video4.mp4 video/video5.mp4 video/video6.mp4
+```
+Works with 2, 5, 10, or as many as you want!
+
+---
+
+
+### **Customizing Output**
+
+#### **Change Output Filename**
+```bash
+node assemble-videos.js --fade video/static.mp4 video/rotation.mp4 --output my_result.mp4
+```
+
+**What it does:**
+- `--output FILENAME` specifies the name of the output video file
+- The file will be saved in the current directory (usually `tools/`)
+- Default filename (if not specified): `assembled.mp4`
+
+
+
+#### **Change Clip Duration** (for transitions)
+```bash
+node assemble-videos.js --fade video/static.mp4 video/rotation.mp4 --duration 5
+```
+Default: 10 seconds  
+**Note:** The tool auto-detects clip duration, so usually you don't need this
+
+#### **Change Transition Duration**
+```bash
+node assemble-videos.js --fade video/static.mp4 video/rotation.mp4 --transition 2
+```
+Default: 1 second  
+Useful for longer/shorter fade effects
+
+#### **Preview FFmpeg Command** (don't execute)
+```bash
+node assemble-videos.js --fade video/static.mp4 video/rotation.mp4 --preview
+```
+Shows the FFmpeg command without running it - useful for debugging
+
+---
+
+
+
+### **Full Workflow: Create & Combine**
+
+```bash
+# 1  Set API key (once per terminal session)
+export GOOGLE_API_KEY="xxx"
+
+# 2  Generate individual camera videos
+node camera-01-static.js
+node camera-02-zoom.js
+node camera-03-rotation.js
+
+# 3 Create video files from frames using ffmpeg
+ffmpeg -framerate 30 -i output_static/%05d.jpg -c:v libx264 -pix_fmt yuv420p -y video/static.mp4
+ffmpeg -framerate 30 -i output_zoom/%05d.jpg -c:v libx264 -pix_fmt yuv420p -y video/zoom.mp4
+ffmpeg -framerate 30 -i output_rotation/%05d.jpg -c:v libx264 -pix_fmt yuv420p -y video/rotation.mp4
+
+# 4 Assemble them together with transitions
+node assemble-videos.js --fade video/static.mp4 video/zoom.mp4 video/rotation.mp4 --output final_showcase.mp4
+
+# 5 Or compare side-by-side
+node assemble-videos.js --sidebyside video/static.mp4 video/zoom.mp4 video/rotation.mp4 --output comparison.mp4
+
+# 6  Watch your result!
+open final_showcase.mp4  # macOS
+# or
+vlc final_showcase.mp4   # Any system
+```
+
+---
